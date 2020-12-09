@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using UEditor.Core;
 namespace WaterCloud.Web.Controllers
 {
@@ -13,6 +13,7 @@ namespace WaterCloud.Web.Controllers
         }
 
         [ServiceFilter(typeof(HandlerLoginAttribute))]
+        [IgnoreAntiforgeryToken]
         public void Do()
         {
             ue.DoAction(HttpContext);
