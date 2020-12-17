@@ -4,13 +4,20 @@
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <UserSecretsId>c1fb91bb-fd9e-4a3a-8c93-b84e89a0941a</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <Version>1.6.0.0</Version>
+    <Version>1.7.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>false</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="upload\**" />
+    <Content Remove="upload\**" />
+    <EmbeddedResource Remove="upload\**" />
+    <None Remove="upload\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.0.0" />
@@ -25,7 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UEditor.Core\UEditor.Core.csproj" />
     <ProjectReference Include="..\WaterCloud.CodeGenerator\WaterCloud.CodeGenerator.csproj" />
     <ProjectReference Include="..\WaterCloud.Code\WaterCloud.Code.csproj" />
     <ProjectReference Include="..\WaterCloud.Service\WaterCloud.Service.csproj" />

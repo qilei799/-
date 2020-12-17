@@ -15,11 +15,6 @@ namespace WaterCloud.WebApi
     public class AuthorizeFilterAttribute : ActionFilterAttribute
     {
         /// <summary>
-        /// 忽略token的方法
-        /// </summary>
-        public static readonly string[] IgnoreToken = { "Login", "LoginOff" };
-
-        /// <summary>
         /// 异步接口日志
         /// </summary>
         /// <param name="context"></param>
@@ -66,7 +61,7 @@ namespace WaterCloud.WebApi
             }
             else if (anonymous == null && methodanonymous == null)
             {
-                AjaxResult obj = new AjaxResult();
+                AlwaysResult obj = new AlwaysResult();
                 obj.message = "抱歉，没有操作权限";
                 obj.state = ResultType.error.ToString();
                 context.Result = new JsonResult(obj);
